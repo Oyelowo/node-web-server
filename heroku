@@ -1,0 +1,4 @@
+heroku --help
+heroku login
+heroku keys:add
+ssh -v git@heroku.com

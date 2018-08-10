@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
 let app = express();
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -22,19 +23,18 @@ app.use((req, res, next) => {
     next()
 });
 
-// app.use((req, res, next) => {
-//     res.render('maintenance.hbs', {maintenanceMsg: 'Coming  Soon'});
-// });
+// app.use((req, res, next) => {     res.render('maintenance.hbs',
+// {maintenanceMsg: 'Coming  Soon'}); });
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', (req, res) => { //
-    res.send('<h1>Hello Express!</h1>');
-    res.send({
-        name: 'Oyelowo',
-        likes: ['Coding', 'Traveling']
-    });
-});
+// app.get('/', (req, res) => { //
+//     res.send('<h1>Hello Express!</h1>');
+//     res.send({
+//         name: 'Oyelowo',
+//         likes: ['Coding', 'Traveling']
+//     });
+// });
 
 app.get('/', (req, res) => {
     res.render('home.hbs', {
@@ -51,6 +51,4 @@ app.get('/bad', (req, res) => {
     res.send({errorMessage: 'unable to fulfill the request'})
 });
 
-app.listen(3000, () => {
-    console.log('server is up on port 3000');
-});
+app.listen(port, () => console.log(`server is up on port ${port}`));

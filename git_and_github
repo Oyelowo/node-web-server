@@ -1,0 +1,7 @@
+ls -al ~/.ssh
+ssh-keygen -t rsa -b 4097 -C 'oyelowooyedayo@gmail.com'
+eval "$(ssh-agent -s)"
+ssh-add
+clip < ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+git remote add origin https://github.com/Oyelowo/node-web-server.git
