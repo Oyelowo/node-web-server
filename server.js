@@ -28,13 +28,9 @@ app.use((req, res, next) => {
 
 app.use(express.static(__dirname + '/public'));
 
-// app.get('/', (req, res) => { //
-//     res.send('<h1>Hello Express!</h1>');
-//     res.send({
-//         name: 'Oyelowo',
-//         likes: ['Coding', 'Traveling']
-//     });
-// });
+// app.get('/', (req, res) => { //     res.send('<h1>Hello Express!</h1>');
+// res.send({         name: 'Oyelowo',         likes: ['Coding', 'Traveling']
+// }); });
 
 app.get('/', (req, res) => {
     res.render('home.hbs', {
@@ -44,7 +40,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.render('about.hbs', {pageTitle: 'About Page'})
+    res.render('about.hbs', {pageTitle: 'About Page'});
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {pageTitle: 'My Projects'});
 });
 
 app.get('/bad', (req, res) => {
